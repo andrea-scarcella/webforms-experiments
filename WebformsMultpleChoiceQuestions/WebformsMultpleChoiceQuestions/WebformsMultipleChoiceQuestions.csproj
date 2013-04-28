@@ -58,9 +58,9 @@
     <Content Include="Account\Register.aspx" />
     <Content Include="App_Data\QuestionData.xml" />
     <Content Include="Scripts\radiobuttonFix.js" />
-    <Content Include="Secure\masterDetailTest.aspx" />
+    <Content Include="Secure\nestedRepeaterTest.aspx" />
     <Content Include="Secure\Test.aspx" />
-    <Content Include="Secure\WebForm1.aspx" />
+    <Content Include="Secure\repeaterRadioButtonListTest.aspx" />
     <Content Include="Styles\forms.css" />
     <Content Include="Styles\print.css" />
     <Content Include="Styles\screen.css" />
@@ -126,12 +126,12 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Secure\masterDetailTest.aspx.cs">
-      <DependentUpon>masterDetailTest.aspx</DependentUpon>
+    <Compile Include="Secure\nestedRepeaterTest.aspx.cs">
+      <DependentUpon>nestedRepeaterTest.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Secure\masterDetailTest.aspx.designer.cs">
-      <DependentUpon>masterDetailTest.aspx</DependentUpon>
+    <Compile Include="Secure\nestedRepeaterTest.aspx.designer.cs">
+      <DependentUpon>nestedRepeaterTest.aspx</DependentUpon>
     </Compile>
     <Compile Include="Secure\Test.aspx.cs">
       <DependentUpon>Test.aspx</DependentUpon>
@@ -140,12 +140,12 @@
     <Compile Include="Secure\Test.aspx.designer.cs">
       <DependentUpon>Test.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Secure\WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="Secure\repeaterRadioButtonListTest.aspx.cs">
+      <DependentUpon>repeaterRadioButtonListTest.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Secure\WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="Secure\repeaterRadioButtonListTest.aspx.designer.cs">
+      <DependentUpon>repeaterRadioButtonListTest.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>

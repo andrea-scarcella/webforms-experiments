@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"
-    CodeBehind="masterDetailTest.aspx.cs" Inherits="WebformsMultipleChoiceQuestions.Secure.masterDetailTest" %>
+    CodeBehind="nestedRepeaterTest.aspx.cs" Inherits="WebformsMultipleChoiceQuestions.Secure.masterDetailTest" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
