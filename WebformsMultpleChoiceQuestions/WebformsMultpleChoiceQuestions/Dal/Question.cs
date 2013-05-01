@@ -19,7 +19,7 @@ namespace WebformsMultipleChoiceQuestions.Dal
           {
               a = new Answer();
               a.aid = i;
-              a.text = "Answer "+i+ " "+DateTime.Now.ToString();
+              a.text = "Answer "+i+ " "+DateTime.Now.ToString()+" " + Guid.NewGuid().ToString();
               answers.Add(a);
           }
       }

@@ -5,6 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <link href="../Styles/Site.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -15,24 +16,17 @@
                 Vraag
             </headertemplate>
             <separatortemplate>
-                <br />
+               <div class="separator"></div>
             </separatortemplate>
             <itemtemplate>
-                <li>
-                    <%#DataBinder.Eval(Container.DataItem, "Text")%>
-                </li>
-                <div>
+                <p><%#DataBinder.Eval(Container.DataItem, "Text")%></p>
+                <div class="optielijst">
                  <asp:RadioButtonList ID="RadioButtonList1" DataSource='<%#Eval("answers") %>' 
-                 DataValueField="selected" DataTextField="text"
+                 DataValueField="aid" DataTextField="text"
                  runat="server">
-                  <%--  <asp:Repeater runat="server" ID="answerRepeater" DataSource='<%#Eval("answers") %>'>
-                        <ItemTemplate>
-                            <li>
-                                <%#Eval("text")%>
-                            </li>
-                        </ItemTemplate>
-                    </asp:Repeater>--%>
-                    </asp:RadioButtonList>
+                  <%-- <asp:listitem id="option1" runat="server" value='<%#Eval("id") %>'/>--%>
+                 </asp:RadioButtonList>
+                 <asp:RequiredFieldValidator runat="server" ControlToValidate="RadioButtonList1" ErrorMessage="RequiredFieldValidator"> </asp:RequiredFieldValidator>
                 </div>
             </itemtemplate>
         </asp:repeater>
@@ -40,6 +34,7 @@
             typename="WebformsMultipleChoiceQuestions.Dal.TestViewModel"></asp:objectdatasource>
     </div>
     <div>
+        <asp:button id="submitButton" runat="server" text="Button" onclick="submitButton_Click" />
     </div>
     </form>
 </body>

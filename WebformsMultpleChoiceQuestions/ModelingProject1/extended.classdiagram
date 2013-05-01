@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="28024ce2-fa42-4058-a4cd-95b1ac482559" name="UMLClassDiagram1" linkedPackageId="54413c87-a83b-48a4-a6ce-140871b6327d" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <ownedCommentsInternal>
+    <comment Id="6a255bf5-a1f1-4ce9-ba87-96804f4416fe">
+      <elementDefinition Id="c6451272-55c3-4121-9e72-a2c05eee40af" />
+      <body>This diagram needs fixing</body>
+    </comment>
+  </ownedCommentsInternal>
+  <profileInstances>
+    <packageHasProfileInstances Id="f2717ad8-6167-440c-87c7-300b5c46d2f5">
+      <profileInstance Id="6f0ed9f8-c230-468c-9db0-77fdcca9db9a" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="5dacda7f-6546-4b15-a22f-3659444b25a3">
+      <profileInstance Id="d93546a2-9330-4c50-88d5-856b6d433dff" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="fede8671-22a7-43b5-8f69-41094d9e8fb1" name="Verb" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="a1bb4b0b-ed9d-4b92-9424-4c80b880ee40" />
+        <targetEnds>
+          <association Id="a1f4cd5c-b2f3-43ba-914e-e25cc54704a7" isDerived="false" sourceEndRoleName="Verb" targetEndRoleName="Prefix" isLeaf="false" isAbstract="false">
+            <classMoniker Id="01b1ef51-ba5e-4577-bb6b-cd4f5901233e" LastKnownName="Prefix" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="471a6fdf-e5ef-4edd-99cc-efc2a58c6b9e" name="Verb" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString Id="7db1557d-eb00-4c5f-8962-c68acd4274e0" name="Lower" value="0">
+                      <elementDefinition Id="06cc76aa-5230-471d-abe9-830d060a2d47" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="f5a1e6b2-9565-49d8-b366-d06030d0df03" name="Upper" value="0">
+                      <elementDefinition Id="4c4c486a-b0f4-4923-9f58-15475cd5ae38" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="c43ef15f-6f95-4aa3-80a1-0c05942df333" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="92234474-9b7c-426d-9b2a-cb874c4ed600" name="Prefix" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="0dd4f28c-7233-4787-82c8-76e15c184bc2" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="323521a5-d832-41fa-b2b1-0fb1d75d0ed4" />
+          </association>
+          <association Id="2f290e9a-9e3b-4cf6-acd3-eb3dd4bd5368" isDerived="false" sourceEndRoleName="Verb" targetEndRoleName="Conjugation" isLeaf="false" isAbstract="false">
+            <classMoniker Id="b9cc7a56-c037-4b1c-a3ab-853f9bd925d7" LastKnownName="Conjugation" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="f90d08a1-a084-49d5-96c0-0281cad28f10" name="Verb" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="1487abf2-4efc-41bb-a19d-417408a124f3" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="75e76595-b3b6-41e2-86fb-f1dd98b0468d" name="Conjugation" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="aa6f94de-b874-4793-ad8a-c5ab698ad247" name="Lower" value="n">
+                      <elementDefinition Id="f2b029cd-90a6-45cb-9a2e-b0e82dc5b0ea" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="04253ebb-6f5d-4028-8386-c644fec0320a" name="Upper" value="n">
+                      <elementDefinition Id="a8a0068c-9cdf-4ce8-b1b3-f9c9fbde0a68" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="dde4858e-1bba-4c1a-bb68-a5ee7019d4cf" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="08587add-c16f-48fc-9706-d2b079978a47" />
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="2fe4b30a-4026-408d-80fe-6b4124c23743" name="Infinitive" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="a3c762eb-989e-44d0-ba4f-3ac9b6f299b4" />
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="8801040c-ffc2-4d82-8488-7e132da5264d" name="Tense" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="29d19e91-8efb-43f3-8c6d-4c5b11736644" />
+        <ownedAttributesInternal>
+          <property Id="4594cc77-5ef8-4db7-bab3-305709cc477e" name="Name" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="8c26938e-ca4c-4364-b52e-86e62b1680c3" />
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="4385f642-ec6b-4c22-a37c-d50871e67546" name="Person" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="c10e09dc-464d-4452-ad1f-302d2a049ad8" />
+        <targetEnds>
+          <association Id="9138570a-36ed-461b-b8c9-c154f2daf3d0" isDerived="false" sourceEndRoleName="Person" targetEndRoleName="Finite Form" isLeaf="false" isAbstract="false">
+            <classMoniker Id="59c9f9bf-93a1-40d6-a7ac-260ddedbd063" LastKnownName="Finite Verb" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="0c07367f-4f28-43d3-88b4-eec775a54c6b" name="Person" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="4b771aa1-0b60-4e29-b9c8-5b0ed0d7c9eb" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="75185392-1903-47e8-bd56-b24cb7fb62d4" name="Finite Form" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="d68fc204-7e3b-4246-b2f5-9cea7368f3a1" name="Lower" value="n">
+                      <elementDefinition Id="dd7bef76-c2a5-401d-b966-3fe327aa3e2e" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="16149468-7af7-48b6-ac52-ecb484797f0e" name="Upper" value="n">
+                      <elementDefinition Id="1fc34a50-f83d-4ade-a5ea-4ea1d75d6dfc" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="67257878-8ce1-4b7e-838f-5e59f671047e" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="4a32c49e-eba5-4c83-b7ea-b0f102a6656f" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="b9cc7a56-c037-4b1c-a3ab-853f9bd925d7" name="Conjugation" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="59842852-08f6-4ae9-a2de-cca0b9edbb33" />
+        <targetEnds>
+          <association Id="1ffca83a-d006-4bae-a105-07e20c22a293" isDerived="false" sourceEndRoleName="Conjugation" targetEndRoleName="Tense" isLeaf="false" isAbstract="false">
+            <classMoniker Id="8801040c-ffc2-4d82-8488-7e132da5264d" LastKnownName="Tense" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d48c03d0-318a-4969-b069-6464cd15b64c" name="Conjugation" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="94688ac8-e177-4f18-8072-73fb3e44f437" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="c2f84bf9-a593-498d-9f02-22c3495a00cb" name="Tense" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="338763b4-4fa0-4786-9e7b-f5fa83c585c8" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="5d803f8f-da2e-4357-878c-d7efcfddef53" />
+          </association>
+          <association Id="c477cf43-1742-4597-b776-f31128307d21" isDerived="false" sourceEndRoleName="Conjugation" targetEndRoleName="Finite Form" isLeaf="false" isAbstract="false">
+            <classMoniker Id="59c9f9bf-93a1-40d6-a7ac-260ddedbd063" LastKnownName="Finite Verb" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="c8f676fb-eb37-4e4d-96c3-794596cbe4d0" name="Conjugation" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="714e95bb-a161-4d64-b1ee-6d4927f055a9" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="76f9baa7-c87a-46a5-82ef-d6887d152225" name="Finite Form" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="26aecec3-1978-43d7-876d-91e27e90d4a5" name="Lower" value="n">
+                      <elementDefinition Id="bad20aec-2de2-431e-9f0c-f53219464a9a" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="5f4951a1-bf3d-42c2-af25-84aafa80fcb9" name="Upper" value="n">
+                      <elementDefinition Id="d07a09e4-2e4f-4b90-b273-3ac9aafa12c0" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="e841a93f-cfd8-4717-8218-9fce222bd862" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="12622faa-6444-4035-95c9-293c56fbbf4b" />
+          </association>
+          <association Id="fe95bdd0-50aa-485c-accd-6dc4c23508ed" isDerived="false" sourceEndRoleName="Conjugation" targetEndRoleName="Non-Finite Verb" isLeaf="false" isAbstract="false">
+            <classMoniker Id="087d7b2e-9294-4af4-ab41-7be05456bae6" LastKnownName="Non-Finite Verb" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="567a0816-f391-4103-9929-e70f766bfb93" name="Conjugation" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString Id="2d079130-f538-46dd-ba00-e9bc77159996" name="Lower" value="0">
+                      <elementDefinition Id="3f543cbd-463a-415e-86c4-3b66f55e9ad2" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="c295a6c0-b6c5-4e7b-ba1c-f0d4237b2a51" name="Upper" value="0">
+                      <elementDefinition Id="86ea46d4-c8d7-4b1f-8033-e770d7de739a" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="4bcff367-8b6f-41eb-8ab5-c37cebdea026" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="4fa1675b-f640-485c-93c2-499d704a9baa" name="Non-Finite Verb" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="00a0a159-0e14-4db9-b30e-c3021f10b48d" name="Lower" value="n">
+                      <elementDefinition Id="13defc86-ee13-4ad5-9925-f741d1999d7f" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="3e80c3ec-a921-4d53-b6c9-4b4d5bf8fa49" name="Upper" value="n">
+                      <elementDefinition Id="8e7d1ecc-183a-412b-ada3-7733065e0690" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="e9ba9010-2e7b-4fac-920b-a7271cf4a885" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="d8a5972d-bccd-420a-93ed-a446b8b872c4" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="01b1ef51-ba5e-4577-bb6b-cd4f5901233e" name="Prefix" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="e65d048d-b348-4121-b85b-998ac009085b" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="59c9f9bf-93a1-40d6-a7ac-260ddedbd063" name="Finite Verb" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="d428a758-da95-41ff-b1d2-69a8f7ccf699" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="087d7b2e-9294-4af4-ab41-7be05456bae6" name="Non-Finite Verb" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="1a7b573c-7e48-49e7-914b-4cac640bb4cc" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="54413c87-a83b-48a4-a6ce-140871b6327d" name="ModelingProject1">
+    <elementDefinition Id="3a20340d-3eb3-4203-ad74-4c553137810c" />
+  </package>
+</logicalClassDesignerModel>

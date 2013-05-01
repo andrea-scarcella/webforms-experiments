@@ -30,6 +30,12 @@
                         <br />
                         </ItemTemplate>
                     </asp:Repeater>
+                    <asp:CustomValidator ID="CustomValidator1" runat="server" 
+            ErrorMessage="CustomValidator" 
+            Display="Dynamic"
+            OnServerValidate="CustomValidator1_ServerValidate"></asp:CustomValidator>
+                     <%--<asp:CustomValidator id="CustomValidator1" runat="server" Display="Dynamic" ErrorMessage="please choose" ClientValidationFunction="CustomValidator1_ClientValidate" OnServerValidate="CustomValidator1_ServerValidate"></asp:CustomValidator>--%>
+
                 </div>
             </itemtemplate>
         </asp:repeater>
