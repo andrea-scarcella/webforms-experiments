@@ -111,9 +111,9 @@
     <Compile Include="Account\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Dal\Answer.cs" />
-    <Compile Include="Dal\Question.cs" />
-    <Compile Include="Dal\Test.cs" />
+    <Compile Include="Business\Answer.cs" />
+    <Compile Include="Business\Question.cs" />
+    <Compile Include="Business\Test.cs" />
     <Compile Include="Dal\TestViewModel.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
