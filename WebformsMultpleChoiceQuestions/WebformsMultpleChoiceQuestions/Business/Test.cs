@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using WebformsMultipleChoiceQuestions.Infrastructure;
 
-namespace WebformsMultipleChoiceQuestions.Dal
+namespace WebformsMultipleChoiceQuestions.Business
 {
     public class Test
     {
+        private readonly ILogger log;
+
         public int id { get; set; }
         private List<Question> _questions=new List<Question>();
         public Test()
