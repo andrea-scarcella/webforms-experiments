@@ -11,15 +11,15 @@
         enableflattening="False" entitysetname="Departments" select="it.[DepartmentID], it.[Name]">
     </asp:entitydatasource>
     <asp:entitydatasource id="CoursesEntityDataSource" runat="server" autogeneratewhereclause="True"
-        ContextTypeName="ContosoUniversity.DAL.SchoolEntities" 
-        enableflattening="False" entitysetname="Courses" where="">
+        contexttypename="ContosoUniversity.DAL.SchoolEntities" enableflattening="False"
+        entitysetname="Courses" where="">
         <whereparameters>
             <asp:ControlParameter ControlID="DepartmentsDropDownList" Name="DepartmentID" 
                 PropertyName="SelectedValue" Type="Int32" />
         </whereparameters>
-    </asp:entitydatasource>
+    </asp:entitydatasource>Select a department
     <asp:dropdownlist id="DepartmentsDropDownList" runat="server" datasourceid="DepartmentsEntityDataSource"
-        datatextfield="Name" datavaluefield="DepartmentID" AutoPostBack="True">
+        datatextfield="Name" datavaluefield="DepartmentID" autopostback="True">
     </asp:dropdownlist>
     <asp:gridview id="CoursesGridView" runat="server" autogeneratecolumns="False" datakeynames="CourseID"
         datasourceid="CoursesEntityDataSource">

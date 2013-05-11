@@ -3,11 +3,23 @@
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
-<asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
+<asp:content id="BodyContent" runat="server" contentplaceholderid="MainContent">
     <h2>
-        About
-    </h2>
-    <p>
-        Put content here.
-    </p>
-</asp:Content>
+        Student Body Statistics</h2>
+    <asp:entitydatasource id="StudentStatisticsEntityDataSource" runat="server" 
+    contexttypename="ContosoUniversity.DAL.SchoolEntities"
+    enableflattening="False" entitysetname="People"
+        groupby="it.EnrollmentDate" select="it.EnrollmentDate, Count(it.EnrollmentDate) AS NumberOfStudents"
+        where="it.EnrollmentDate is not null">
+    </asp:entitydatasource>
+    <asp:gridview id="StudentStatisticsGridView" runat="server" autogeneratecolumns="False"
+        datasourceid="StudentStatisticsEntityDataSource">
+        <columns>
+            <asp:BoundField DataField="EnrollmentDate" DataFormatString="{0:d}" 
+                HeaderText="Date of Enrollment" 
+                ReadOnly="True" SortExpression="EnrollmentDate" />
+            <asp:BoundField DataField="NumberOfStudents" HeaderText="Students" 
+                ReadOnly="True" SortExpression="NumberOfStudents" />
+        </columns>
+    </asp:gridview>
+</asp:content>
