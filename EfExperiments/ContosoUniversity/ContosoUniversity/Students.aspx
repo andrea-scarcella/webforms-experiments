@@ -6,8 +6,8 @@
 <asp:content id="Content2" contentplaceholderid="MainContent" runat="server">
     <h2>
         Student List</h2>
-    <asp:entitydatasource id="StudentsEntityDataSource" runat="server" connectionstring="name=SchoolEntities"
-        defaultcontainername="SchoolEntities" enabledelete="True" enableflattening="False"
+    <asp:entitydatasource id="StudentsEntityDataSource" runat="server" ContextTypeName="ContosoUniversity.DAL.SchoolEntities" 
+        enabledelete="True" enableflattening="False"
         enableupdate="True" entitysetname="People">
     </asp:entitydatasource>
     <asp:gridview id="StudentsGridView" runat="server" allowpaging="True" allowsorting="True"
@@ -22,6 +22,7 @@
                     <asp:TextBox ID="FirstNameTextBox" runat="server" Text='<%# Bind("FirstMidName") %>'></asp:TextBox>
                 </EditItemTemplate>
                 <ItemTemplate>
+                <%--no need to access data from page codebehind use EVAL instead of BIND--%>
                     <asp:Label ID="LastNameLabel" runat="server" Text='<%# Eval("LastName") %>'></asp:Label>,
                     <asp:Label ID="FirstNameLabel" runat="server" Text='<%# Eval("FirstMidName") %>'></asp:Label>
                 </ItemTemplate>

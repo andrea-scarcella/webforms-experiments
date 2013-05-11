@@ -18,17 +18,17 @@ using System.Runtime.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
-[assembly: EdmRelationshipAttribute("SchoolModel", "FK_Course_Department", "Department", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ContosoUniversity.Department), "Course", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ContosoUniversity.Course), true)]
-[assembly: EdmRelationshipAttribute("SchoolModel", "FK_OnlineCourse_Course", "Course", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ContosoUniversity.Course), "OnlineCourse", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(ContosoUniversity.OnlineCourse), true)]
-[assembly: EdmRelationshipAttribute("SchoolModel", "FK_OnsiteCourse_Course", "Course", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ContosoUniversity.Course), "OnsiteCourse", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(ContosoUniversity.OnsiteCourse), true)]
-[assembly: EdmRelationshipAttribute("SchoolModel", "FK_StudentGrade_Course", "Course", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ContosoUniversity.Course), "StudentGrade", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ContosoUniversity.StudentGrade), true)]
-[assembly: EdmRelationshipAttribute("SchoolModel", "FK_OfficeAssignment_Person", "Person", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ContosoUniversity.Person), "OfficeAssignment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(ContosoUniversity.OfficeAssignment), true)]
-[assembly: EdmRelationshipAttribute("SchoolModel", "FK_StudentGrade_Student", "Person", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ContosoUniversity.Person), "StudentGrade", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ContosoUniversity.StudentGrade), true)]
-[assembly: EdmRelationshipAttribute("SchoolModel", "CourseInstructor", "Course", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ContosoUniversity.Course), "Person", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ContosoUniversity.Person))]
+[assembly: EdmRelationshipAttribute("SchoolModel", "FK_Course_Department", "Department", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ContosoUniversity.DAL.Department), "Course", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ContosoUniversity.DAL.Course), true)]
+[assembly: EdmRelationshipAttribute("SchoolModel", "FK_OnlineCourse_Course", "Course", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ContosoUniversity.DAL.Course), "OnlineCourse", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(ContosoUniversity.DAL.OnlineCourse), true)]
+[assembly: EdmRelationshipAttribute("SchoolModel", "FK_OnsiteCourse_Course", "Course", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ContosoUniversity.DAL.Course), "OnsiteCourse", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(ContosoUniversity.DAL.OnsiteCourse), true)]
+[assembly: EdmRelationshipAttribute("SchoolModel", "FK_StudentGrade_Course", "Course", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ContosoUniversity.DAL.Course), "StudentGrade", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ContosoUniversity.DAL.StudentGrade), true)]
+[assembly: EdmRelationshipAttribute("SchoolModel", "FK_OfficeAssignment_Person", "Person", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ContosoUniversity.DAL.Person), "OfficeAssignment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(ContosoUniversity.DAL.OfficeAssignment), true)]
+[assembly: EdmRelationshipAttribute("SchoolModel", "FK_StudentGrade_Student", "Person", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ContosoUniversity.DAL.Person), "StudentGrade", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ContosoUniversity.DAL.StudentGrade), true)]
+[assembly: EdmRelationshipAttribute("SchoolModel", "CourseInstructor", "Course", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ContosoUniversity.DAL.Course), "Person", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ContosoUniversity.DAL.Person))]
 
 #endregion
 
-namespace ContosoUniversity
+namespace ContosoUniversity.DAL
 {
     #region Contexts
     
