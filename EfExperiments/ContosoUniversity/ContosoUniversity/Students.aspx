@@ -8,7 +8,9 @@
         Student List</h2>
     <asp:entitydatasource id="StudentsEntityDataSource" runat="server" contexttypename="ContosoUniversity.DAL.SchoolEntities"
         enabledelete="True" enableflattening="False" enableupdate="True" entitysetname="People"
-        include="StudentGrades">
+        include="StudentGrades"  
+        EntityTypeFilter="" Select="" Where="it.EnrollmentDate is not null" 
+        OrderBy="it.LastName">
     </asp:entitydatasource>
     <asp:gridview id="StudentsGridView" runat="server" allowpaging="True" allowsorting="True"
         autogeneratecolumns="False" datakeynames="PersonID" datasourceid="StudentsEntityDataSource">
