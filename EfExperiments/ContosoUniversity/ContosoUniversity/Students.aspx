@@ -53,6 +53,7 @@
      <asp:button id="SearchButton" runat="server" text="Search" />
     <br />
     <br />
+
     <asp:entitydatasource id="SearchEntityDataSource" runat="server" contexttypename="ContosoUniversity.DAL.SchoolEntities"
         enableflattening="False" entitysetname="People" where="it.EnrollmentDate is not null and (it.FirstMidName Like '%' + @StudentName + '%' or it.LastName Like '%' + @StudentName + '%')">
         <whereparameters>
