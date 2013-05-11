@@ -1190,13 +1190,13 @@ namespace ContosoUniversity
         /// </summary>
         /// <param name="personID">Initial value of the PersonID property.</param>
         /// <param name="lastName">Initial value of the LastName property.</param>
-        /// <param name="firstName">Initial value of the FirstName property.</param>
-        public static Person CreatePerson(global::System.Int32 personID, global::System.String lastName, global::System.String firstName)
+        /// <param name="firstMidName">Initial value of the FirstMidName property.</param>
+        public static Person CreatePerson(global::System.Int32 personID, global::System.String lastName, global::System.String firstMidName)
         {
             Person person = new Person();
             person.PersonID = personID;
             person.LastName = lastName;
-            person.FirstName = firstName;
+            person.FirstMidName = firstMidName;
             return person;
         }
 
@@ -1259,24 +1259,24 @@ namespace ContosoUniversity
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String FirstName
+        public global::System.String FirstMidName
         {
             get
             {
-                return _FirstName;
+                return _FirstMidName;
             }
             set
             {
-                OnFirstNameChanging(value);
-                ReportPropertyChanging("FirstName");
-                _FirstName = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("FirstName");
-                OnFirstNameChanged();
+                OnFirstMidNameChanging(value);
+                ReportPropertyChanging("FirstMidName");
+                _FirstMidName = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("FirstMidName");
+                OnFirstMidNameChanged();
             }
         }
-        private global::System.String _FirstName;
-        partial void OnFirstNameChanging(global::System.String value);
-        partial void OnFirstNameChanged();
+        private global::System.String _FirstMidName;
+        partial void OnFirstMidNameChanging(global::System.String value);
+        partial void OnFirstMidNameChanged();
     
         /// <summary>
         /// No Metadata Documentation available.

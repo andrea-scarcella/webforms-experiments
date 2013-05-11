@@ -315,7 +315,7 @@
           </Key>
           <Property Name="PersonID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="FirstMidName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="HireDate" Type="DateTime" />
           <Property Name="EnrollmentDate" Type="DateTime" />
           <NavigationProperty Name="OfficeAssignment" Relationship="SchoolModel.FK_OfficeAssignment_Person" FromRole="Person" ToRole="OfficeAssignment" />
@@ -448,7 +448,7 @@
           <EntitySetMapping Name="People"><EntityTypeMapping TypeName="SchoolModel.Person"><MappingFragment StoreEntitySet="Person">
             <ScalarProperty Name="PersonID" ColumnName="PersonID" />
             <ScalarProperty Name="LastName" ColumnName="LastName" />
-            <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+            <ScalarProperty Name="FirstMidName" ColumnName="FirstName" />
             <ScalarProperty Name="HireDate" ColumnName="HireDate" />
             <ScalarProperty Name="EnrollmentDate" ColumnName="EnrollmentDate" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
