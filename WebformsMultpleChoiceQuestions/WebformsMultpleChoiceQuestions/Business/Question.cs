@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.ComponentModel.DataAnnotations;
 
 namespace WebformsMultipleChoiceQuestions.Business
 {
   public  class Question
     {
       public string Text{get;set;}
+      [Key]
       public int id { get; set; }
       public List<Answer> answers { get; set; }
       public Question()
