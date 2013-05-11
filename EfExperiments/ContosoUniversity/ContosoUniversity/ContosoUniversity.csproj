@@ -63,7 +63,9 @@
     <Content Include="App_Data\School_log.ldf">
       <DependentUpon>School.mdf</DependentUpon>
     </Content>
+    <Content Include="Courses.aspx" />
     <Content Include="Students.aspx" />
+    <Content Include="StudentsAdd.aspx" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
@@ -114,6 +116,13 @@
     <Compile Include="Account\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Courses.aspx.cs">
+      <DependentUpon>Courses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Courses.aspx.designer.cs">
+      <DependentUpon>Courses.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -143,6 +152,13 @@
     </Compile>
     <Compile Include="Students.aspx.designer.cs">
       <DependentUpon>Students.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentsAdd.aspx.cs">
+      <DependentUpon>StudentsAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentsAdd.aspx.designer.cs">
+      <DependentUpon>StudentsAdd.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
