@@ -31,4 +31,38 @@
                 SortExpression="Credits" />
         </columns>
     </asp:gridview>
+      <h2>
+          Courses by Name</h2>
+    Enter a course name 
+    <asp:textbox id="SearchTextBox" runat="server">
+    </asp:textbox>
+     <asp:button id="SearchButton" runat="server" text="Search" />
+    <br />
+<br />
+    <asp:entitydatasource id="SearchEntityDataSource" runat="server" contexttypename="ContosoUniversity.DAL.SchoolEntities"
+        enableflattening="False" entitysetname="Courses" include="Department">
+        <%--include="Department" ==> performance++ because EF retrieves two tables in a single call instead of two calls--%>
+    </asp:entitydatasource>
+      <asp:queryextender id="SearchQueryExtender" runat="server" targetcontrolid="SearchEntityDataSource">
+          <asp:searchexpression searchtype="StartsWith" datafields="Title">
+              <asp:controlparameter controlid="SearchTextBox" />
+          </asp:searchexpression>
+          <asp:orderbyexpression datafield="Department.Name" direction="Ascending">
+              <asp:thenby datafield="Title" direction="Ascending" />
+          </asp:orderbyexpression>
+      </asp:queryextender>
+
+         <asp:gridview id="SearchGridView" runat="server" autogeneratecolumns="False" datakeynames="CourseID"
+             datasourceid="SearchEntityDataSource" allowpaging="true">
+             <columns>
+            <asp:TemplateField HeaderText="Department">
+                <ItemTemplate>
+                    <asp:Label ID="Label2" runat="server" Text='<%# Eval("Department.Name") %>'></asp:Label>
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:BoundField DataField="CourseID" HeaderText="ID"/>
+            <asp:BoundField DataField="Title" HeaderText="Title" />
+            <asp:BoundField DataField="Credits" HeaderText="Credits" />
+        </columns>
+         </asp:gridview>
 </asp:content>
