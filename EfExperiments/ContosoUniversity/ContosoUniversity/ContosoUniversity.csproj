@@ -64,6 +64,7 @@
       <DependentUpon>School.mdf</DependentUpon>
     </Content>
     <Content Include="Courses.aspx" />
+    <Content Include="DAL\CoursesAdd.aspx" />
     <Content Include="Instructors.aspx" />
     <Content Include="Students.aspx" />
     <Content Include="StudentsAdd.aspx" />
@@ -123,6 +124,13 @@
     </Compile>
     <Compile Include="Courses.aspx.designer.cs">
       <DependentUpon>Courses.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\CoursesAdd.aspx.cs">
+      <DependentUpon>CoursesAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DAL\CoursesAdd.aspx.designer.cs">
+      <DependentUpon>CoursesAdd.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
