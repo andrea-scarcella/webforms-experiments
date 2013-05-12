@@ -6,7 +6,7 @@
 <asp:content id="Content2" contentplaceholderid="MainContent" runat="server">
     <h2>
         Instructors</h2>
-    <div>
+    <div style="float: left; margin-right: 20px;">
         <asp:entitydatasource id="InstructorsEntityDataSource" runat="server" contexttypename="ContosoUniversity.DAL.SchoolEntities"
             enableflattening="False" entitysetname="People" where="it.HireDate is not null"
             include="OfficeAssignment" enableupdate="True">
@@ -59,7 +59,7 @@
             </whereparameters>
         </asp:entitydatasource>
         <asp:gridview id="CoursesGridView" runat="server" autogeneratecolumns="False" datasourceid="CoursesEntityDataSource"
-            datakeynames="CourseID">
+            allowsorting="True" datakeynames="CourseID">
             <emptydatatemplate>
                 <p>No courses found.</p>
             </emptydatatemplate>
@@ -78,5 +78,43 @@
         </asp:gridview>
     </div>
     <%-- ... --%>
- 
+    <div>
+        <h3>
+            Course Details</h3>
+        <asp:entitydatasource id="CourseDetailsEntityDataSource" runat="server" contexttypename="ContosoUniversity.DAL.SchoolEntities"
+            enableflattening="False" entitysetname="Courses" autogeneratewhereclause="False"
+            where="it.CourseID = @CourseID" include="Department,OnlineCourse,OnsiteCourse,StudentGrades.Person"
+            onselected="CourseDetailsEntityDataSource_Selected">
+            <whereparameters>
+                <asp:ControlParameter ControlID="CoursesGridView" Type="Int32" Name="CourseID" PropertyName="SelectedValue" />
+            </whereparameters>
+        </asp:entitydatasource>
+        <asp:detailsview id="CourseDetailsView" runat="server" autogeneraterows="False" datasourceid="CourseDetailsEntityDataSource">
+            <emptydatatemplate>
+                <p>
+                    No course selected.</p>
+            </emptydatatemplate>
+            <fields>
+                <asp:BoundField DataField="CourseID" HeaderText="ID" ReadOnly="True" SortExpression="CourseID" />
+                <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" />
+                <asp:BoundField DataField="Credits" HeaderText="Credits" SortExpression="Credits" />
+                <asp:TemplateField HeaderText="Department">
+                    <ItemTemplate>
+                        <asp:Label ID="DetailsViewDepartmentLabel" runat="server" Text='<%# Eval("Department.Name") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Location">
+                    <ItemTemplate>
+                        <asp:Label ID="LocationLabel" runat="server" Text='<%# Eval("OnsiteCourse.Location") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="URL">
+                    <ItemTemplate>
+                        <asp:Label ID="URLLabel" runat="server" Text='<%# Eval("OnlineCourse.URL") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+            </fields>
+        </asp:detailsview>
+       
+    </div>
 </asp:content>

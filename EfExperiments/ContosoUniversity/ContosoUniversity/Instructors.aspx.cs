@@ -13,16 +13,18 @@ namespace ContosoUniversity
         private TextBox instructorOfficeTextBox;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+           
         }
         protected void InstructorsGridView_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
         }
 
         protected void InstructorOfficeTextBox_Init(object sender, EventArgs e)
         {
             instructorOfficeTextBox = sender as TextBox;
         }
+
         protected void InstructorsGridView_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
             using (var context = new SchoolEntities())
@@ -64,5 +66,12 @@ namespace ContosoUniversity
                 }
             }
         }
+
+        protected void CourseDetailsEntityDataSource_Selected(object sender, EntityDataSourceSelectedEventArgs e)
+        {
+           
+        }
+
+        
     }
 }
