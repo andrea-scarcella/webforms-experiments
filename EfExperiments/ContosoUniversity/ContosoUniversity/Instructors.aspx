@@ -115,6 +115,38 @@
                 </asp:TemplateField>
             </fields>
         </asp:detailsview>
-       
+        <%-- Student grades for the selected course--%>
+        <h3>
+            Student Grades</h3>
+        <asp:listview id="GradesListView" runat="server">
+            <emptydatatemplate>
+                <p>No student grades found.</p>
+            </emptydatatemplate>
+            <layouttemplate>
+                <table border="1" runat="server" id="itemPlaceholderContainer">
+                    <tr id="Tr1" runat="server">
+                        <th id="Th1" runat="server">
+                            Name
+                        </th>
+                        <th id="Th2" runat="server">
+                            Grade
+                        </th>
+                    </tr>
+                    <tr id="itemPlaceholder" runat="server">
+                    </tr>
+                </table>
+            </layouttemplate>
+            <itemtemplate>
+                <tr>
+                    <td>
+                        <asp:Label ID="StudentLastNameLabel" runat="server" Text='<%# Eval("Person.LastName") %>' />,
+                        <asp:Label ID="StudentFirstNameLabel" runat="server" Text='<%# Eval("Person.FirstMidName") %>' />
+                    </td>
+                    <td>
+                        <asp:Label ID="StudentGradeLabel" runat="server" Text='<%# Eval("Grade") %>' />
+                    </td>
+                </tr>
+            </itemtemplate>
+        </asp:listview>
     </div>
 </asp:content>

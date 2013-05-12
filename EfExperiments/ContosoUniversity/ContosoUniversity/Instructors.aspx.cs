@@ -13,11 +13,14 @@ namespace ContosoUniversity
         private TextBox instructorOfficeTextBox;
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+            if (!IsPostBack)
+            {
+                ClearStudentGradesDataSource();
+            }
         }
         protected void InstructorsGridView_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            ClearStudentGradesDataSource();
         }
 
         protected void InstructorOfficeTextBox_Init(object sender, EventArgs e)
@@ -69,9 +72,21 @@ namespace ContosoUniversity
 
         protected void CourseDetailsEntityDataSource_Selected(object sender, EntityDataSourceSelectedEventArgs e)
         {
-           
+            var course = e.Results.Cast<Course>().FirstOrDefault();
+            if (course != null)
+            {
+                var studentGrades = course.StudentGrades.ToList();
+                GradesListView.DataSource = studentGrades;
+                GradesListView.DataBind();
+            }
         }
 
-        
+        private void ClearStudentGradesDataSource()
+        {
+            var emptyStudentGradesList = new List<StudentGrade>();
+            GradesListView.DataSource = emptyStudentGradesList;
+            GradesListView.DataBind();
+        }
+
     }
 }
