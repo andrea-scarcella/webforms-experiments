@@ -248,6 +248,25 @@ namespace ContosoUniversity.DAL
         }
 
         #endregion
+        #region Function Imports
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectResult<Course> GetCourses()
+        {
+            return base.ExecuteFunction<Course>("GetCourses");
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="mergeOption"></param>
+        public ObjectResult<Course> GetCourses(MergeOption mergeOption)
+        {
+            return base.ExecuteFunction<Course>("GetCourses", mergeOption);
+        }
+
+        #endregion
     }
     
 

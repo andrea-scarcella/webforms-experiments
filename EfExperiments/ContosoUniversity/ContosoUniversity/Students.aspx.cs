@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using ContosoUniversity.DAL;
 
 namespace ContosoUniversity
 {
@@ -12,6 +13,12 @@ namespace ContosoUniversity
         protected void Page_Load(object sender, EventArgs e)
         {
 
+        }
+        protected void Page_Init(object sender, EventArgs e)
+        {
+            //validation carried out by dynamicFields depends on Student data type
+            StudentsGridView.EnableDynamicData(typeof(Student));
+            SearchGridView.EnableDynamicData(typeof(Student));
         }
     }
 }

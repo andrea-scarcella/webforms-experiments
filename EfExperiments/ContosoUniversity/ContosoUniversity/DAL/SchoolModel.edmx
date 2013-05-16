@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SchoolModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="SchoolModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="SchoolModelStoreContainer">
           <EntitySet Name="Course" EntityType="SchoolModel.Store.Course" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="CourseInstructor" EntityType="SchoolModel.Store.CourseInstructor" store:Type="Tables" Schema="dbo" />
@@ -215,8 +215,33 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
-    </edmx:StorageModels>
+        <Function Name="DeletePerson" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PersonID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetCourses" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="InsertInstructor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="LastName" Type="nvarchar" Mode="In" />
+          <Parameter Name="FirstName" Type="nvarchar" Mode="In" />
+          <Parameter Name="HireDate" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="InsertStudent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="LastName" Type="nvarchar" Mode="In" />
+          <Parameter Name="FirstName" Type="nvarchar" Mode="In" />
+          <Parameter Name="EnrollmentDate" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="UpdateInstructor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PersonID" Type="int" Mode="In" />
+          <Parameter Name="LastName" Type="nvarchar" Mode="In" />
+          <Parameter Name="FirstName" Type="nvarchar" Mode="In" />
+          <Parameter Name="HireDate" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="UpdateStudent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PersonID" Type="int" Mode="In" />
+          <Parameter Name="LastName" Type="nvarchar" Mode="In" />
+          <Parameter Name="FirstName" Type="nvarchar" Mode="In" />
+          <Parameter Name="EnrollmentDate" Type="datetime" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SchoolModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
@@ -256,6 +281,7 @@
             <End Role="Course" EntitySet="Courses" />
             <End Role="Person" EntitySet="People" />
           </AssociationSet>
+          <FunctionImport Name="GetCourses" EntitySet="Courses" ReturnType="Collection(SchoolModel.Course)" />
         </EntityContainer>
         <EntityType Name="Course">
           <Key>
@@ -470,6 +496,45 @@
                 <ScalarProperty Name="EnrollmentDate" ColumnName="EnrollmentDate" />
                 <Condition ColumnName="EnrollmentDate" IsNull="false" />
               </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="SchoolModel.Student">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="SchoolModel.Store.InsertStudent">
+                  <ScalarProperty Name="FirstMidName" ParameterName="FirstName" />
+                  <ScalarProperty Name="EnrollmentDate" ParameterName="EnrollmentDate" />
+                  <ScalarProperty Name="LastName" ParameterName="LastName" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="SchoolModel.Store.UpdateStudent">
+                  <ScalarProperty Name="FirstMidName" ParameterName="FirstName" Version="Current" />
+                  <ScalarProperty Name="EnrollmentDate" ParameterName="EnrollmentDate" Version="Current" />
+                  <ScalarProperty Name="LastName" ParameterName="LastName" Version="Current" />
+                  <ScalarProperty Name="PersonID" ParameterName="PersonID" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="SchoolModel.Store.DeletePerson">
+                  <ScalarProperty Name="PersonID" ParameterName="PersonID" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="SchoolModel.Instructor">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="SchoolModel.Store.InsertInstructor">
+                  <ScalarProperty Name="FirstMidName" ParameterName="FirstName" />
+                  <ScalarProperty Name="HireDate" ParameterName="HireDate" />
+                  <ScalarProperty Name="LastName" ParameterName="LastName" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="SchoolModel.Store.UpdateInstructor">
+                  <ScalarProperty Name="FirstMidName" ParameterName="FirstName" Version="Current" />
+                  <ScalarProperty Name="HireDate" ParameterName="HireDate" Version="Current" />
+                  <ScalarProperty Name="LastName" ParameterName="LastName" Version="Current" />
+                  <ScalarProperty Name="PersonID" ParameterName="PersonID" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="SchoolModel.Store.UpdateInstructor">
+                  <ScalarProperty Name="FirstMidName" ParameterName="FirstName" />
+                  <ScalarProperty Name="HireDate" ParameterName="HireDate" />
+                  <ScalarProperty Name="LastName" ParameterName="LastName" />
+                  <ScalarProperty Name="PersonID" ParameterName="PersonID" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
             </EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="StudentGrades"><EntityTypeMapping TypeName="SchoolModel.StudentGrade"><MappingFragment StoreEntitySet="StudentGrade">
             <ScalarProperty Name="EnrollmentID" ColumnName="EnrollmentID" />
@@ -485,6 +550,7 @@
               <ScalarProperty Name="PersonID" ColumnName="PersonID" />
             </EndProperty>
           </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="GetCourses" FunctionName="SchoolModel.Store.GetCourses" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -551,14 +617,12 @@
           <ConnectorPoint PointX="6.75" PointY="7.5000025000000008" />
           <ConnectorPoint PointX="10" PointY="7.5000025000000008" />
         </InheritanceConnector>
-        <EntityTypeShape EntityType="SchoolModel.Student" Width="1.5" PointX="10.5" PointY="9.5" Height="0.93491699218749957" />
-        <InheritanceConnector EntityType="SchoolModel.Student" >
+        <EntityTypeShape EntityType="SchoolModel.Student" Width="1.5" PointX="5.875" PointY="10" Height="1.0992643229166657" />
+        <InheritanceConnector EntityType="SchoolModel.Student" ManuallyRouted="false" >
           <ConnectorPoint PointX="6" PointY="9.2960009765625" />
-          <ConnectorPoint PointX="6" PointY="9.6710009765625" />
-          <ConnectorPoint PointX="10.25" PointY="9.6710009765625" />
-          <ConnectorPoint PointX="10.25" PointY="9.25" />
-          <ConnectorPoint PointX="11.25" PointY="9.25" />
-          <ConnectorPoint PointX="11.25" PointY="9.5" />
+          <ConnectorPoint PointX="6" PointY="9.625" />
+          <ConnectorPoint PointX="6.625" PointY="9.625" />
+          <ConnectorPoint PointX="6.625" PointY="10" />
         </InheritanceConnector>
       </Diagram>
     </Diagrams>
