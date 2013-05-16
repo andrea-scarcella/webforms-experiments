@@ -734,6 +734,64 @@ namespace ContosoUniversity.DAL
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="SchoolModel", Name="Instructor")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Instructor : Person
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Instructor object.
+        /// </summary>
+        /// <param name="personID">Initial value of the PersonID property.</param>
+        /// <param name="lastName">Initial value of the LastName property.</param>
+        /// <param name="firstMidName">Initial value of the FirstMidName property.</param>
+        /// <param name="hireDate">Initial value of the HireDate property.</param>
+        public static Instructor CreateInstructor(global::System.Int32 personID, global::System.String lastName, global::System.String firstMidName, global::System.DateTime hireDate)
+        {
+            Instructor instructor = new Instructor();
+            instructor.PersonID = personID;
+            instructor.LastName = lastName;
+            instructor.FirstMidName = firstMidName;
+            instructor.HireDate = hireDate;
+            return instructor;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime HireDate
+        {
+            get
+            {
+                return _HireDate;
+            }
+            set
+            {
+                OnHireDateChanging(value);
+                ReportPropertyChanging("HireDate");
+                _HireDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("HireDate");
+                OnHireDateChanged();
+            }
+        }
+        private global::System.DateTime _HireDate;
+        partial void OnHireDateChanging(global::System.DateTime value);
+        partial void OnHireDateChanged();
+
+        #endregion
+    
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="SchoolModel", Name="OfficeAssignment")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -1181,26 +1239,10 @@ namespace ContosoUniversity.DAL
     [EdmEntityTypeAttribute(NamespaceName="SchoolModel", Name="Person")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class Person : EntityObject
+    [KnownTypeAttribute(typeof(Instructor))]
+    [KnownTypeAttribute(typeof(Student))]
+    public abstract partial class Person : EntityObject
     {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new Person object.
-        /// </summary>
-        /// <param name="personID">Initial value of the PersonID property.</param>
-        /// <param name="lastName">Initial value of the LastName property.</param>
-        /// <param name="firstMidName">Initial value of the FirstMidName property.</param>
-        public static Person CreatePerson(global::System.Int32 personID, global::System.String lastName, global::System.String firstMidName)
-        {
-            Person person = new Person();
-            person.PersonID = personID;
-            person.LastName = lastName;
-            person.FirstMidName = firstMidName;
-            return person;
-        }
-
-        #endregion
         #region Primitive Properties
     
         /// <summary>
@@ -1277,54 +1319,6 @@ namespace ContosoUniversity.DAL
         private global::System.String _FirstMidName;
         partial void OnFirstMidNameChanging(global::System.String value);
         partial void OnFirstMidNameChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> HireDate
-        {
-            get
-            {
-                return _HireDate;
-            }
-            set
-            {
-                OnHireDateChanging(value);
-                ReportPropertyChanging("HireDate");
-                _HireDate = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("HireDate");
-                OnHireDateChanged();
-            }
-        }
-        private Nullable<global::System.DateTime> _HireDate;
-        partial void OnHireDateChanging(Nullable<global::System.DateTime> value);
-        partial void OnHireDateChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> EnrollmentDate
-        {
-            get
-            {
-                return _EnrollmentDate;
-            }
-            set
-            {
-                OnEnrollmentDateChanging(value);
-                ReportPropertyChanging("EnrollmentDate");
-                _EnrollmentDate = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("EnrollmentDate");
-                OnEnrollmentDateChanged();
-            }
-        }
-        private Nullable<global::System.DateTime> _EnrollmentDate;
-        partial void OnEnrollmentDateChanging(Nullable<global::System.DateTime> value);
-        partial void OnEnrollmentDateChanged();
 
         #endregion
     
@@ -1413,6 +1407,64 @@ namespace ContosoUniversity.DAL
         }
 
         #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="SchoolModel", Name="Student")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Student : Person
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Student object.
+        /// </summary>
+        /// <param name="personID">Initial value of the PersonID property.</param>
+        /// <param name="lastName">Initial value of the LastName property.</param>
+        /// <param name="firstMidName">Initial value of the FirstMidName property.</param>
+        /// <param name="enrollmentDate">Initial value of the EnrollmentDate property.</param>
+        public static Student CreateStudent(global::System.Int32 personID, global::System.String lastName, global::System.String firstMidName, global::System.DateTime enrollmentDate)
+        {
+            Student student = new Student();
+            student.PersonID = personID;
+            student.LastName = lastName;
+            student.FirstMidName = firstMidName;
+            student.EnrollmentDate = enrollmentDate;
+            return student;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime EnrollmentDate
+        {
+            get
+            {
+                return _EnrollmentDate;
+            }
+            set
+            {
+                OnEnrollmentDateChanging(value);
+                ReportPropertyChanging("EnrollmentDate");
+                _EnrollmentDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("EnrollmentDate");
+                OnEnrollmentDateChanged();
+            }
+        }
+        private global::System.DateTime _EnrollmentDate;
+        partial void OnEnrollmentDateChanging(global::System.DateTime value);
+        partial void OnEnrollmentDateChanged();
+
+        #endregion
+    
     }
     
     /// <summary>

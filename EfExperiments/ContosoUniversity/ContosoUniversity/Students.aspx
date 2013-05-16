@@ -8,7 +8,7 @@
         Student List</h2>
     <asp:entitydatasource id="StudentsEntityDataSource" runat="server" contexttypename="ContosoUniversity.DAL.SchoolEntities"
         enabledelete="True" enableflattening="False" enableupdate="True" entitysetname="People"
-        include="StudentGrades" entitytypefilter="" select="" where="it.EnrollmentDate is not null"
+        include="StudentGrades" entitytypefilter="Student" select="" 
         orderby="it.LastName">
     </asp:entitydatasource>
     <asp:gridview id="StudentsGridView" runat="server" allowpaging="True" allowsorting="True"
@@ -55,6 +55,7 @@
     <br />
 
     <asp:entitydatasource id="SearchEntityDataSource" runat="server" contexttypename="ContosoUniversity.DAL.SchoolEntities"
+       entitytypefilter="Student"
         enableflattening="False" entitysetname="People" where="it.EnrollmentDate is not null and (it.FirstMidName Like '%' + @StudentName + '%' or it.LastName Like '%' + @StudentName + '%')">
         <whereparameters>
             <asp:ControlParameter ControlID="SearchTextBox" Name="StudentName" PropertyName="Text" 

@@ -8,7 +8,8 @@
     Assign Instructors to Courses or Remove from Courses</h2>
     <br />
     <asp:entitydatasource id="InstructorsEntityDataSource" runat="server" contexttypename="ContosoUniversity.DAL.SchoolEntities"
-        enableflattening="False" entitysetname="People" where="it.HireDate is not null"
+        enableflattening="False" entitysetname="People" 
+        entitytypefilter="Instructor"
         select="it.LastName + ', ' + it.FirstMidName AS Name, it.PersonID">
     </asp:entitydatasource>
     Select an Instructor:
@@ -33,8 +34,8 @@
         Remove a Course</h3>
     <br />
     Select a Course:
-    <asp:dropdownlist id="AssignedCoursesDropDownList" runat="server" datatextfield="title"
-        datavaluefield="courseiD">
+    <asp:dropdownlist id="AssignedCoursesDropDownList" runat="server" datatextfield="Title"
+        datavaluefield="CourseID">
     </asp:dropdownlist>
     <br />
     <asp:button id="RemoveCourseButton" runat="server" text="Remove" onclick="RemoveCourseButton_Click" />

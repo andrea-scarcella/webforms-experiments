@@ -7,7 +7,7 @@
     <h2>
         Add New Students</h2>
     <asp:entitydatasource id="StudentsEntityDataSource" runat="server" contexttypename="ContosoUniversity.DAL.SchoolEntities"
-        enableflattening="False" enableinsert="True" entitysetname="People">
+       EntityTypeFilter="Student" enableflattening="False" enableinsert="True" entitysetname="People">
     </asp:entitydatasource>
     <asp:detailsview id="StudentsDetailsView" runat="server" datasourceid="StudentsEntityDataSource"
         autogeneraterows="False" defaultmode="Insert">

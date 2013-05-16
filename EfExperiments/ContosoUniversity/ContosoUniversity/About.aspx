@@ -8,9 +8,10 @@
         Student Body Statistics</h2>
     <asp:entitydatasource id="StudentStatisticsEntityDataSource" runat="server" 
     contexttypename="ContosoUniversity.DAL.SchoolEntities"
-    enableflattening="False" entitysetname="People"
+    enableflattening="False" entitysetname="People" 
+    EntityTypeFilter="Student"
         groupby="it.EnrollmentDate" select="it.EnrollmentDate, Count(it.EnrollmentDate) AS NumberOfStudents"
-        where="it.EnrollmentDate is not null">
+        >
     </asp:entitydatasource>
     <asp:gridview id="StudentStatisticsGridView" runat="server" autogeneratecolumns="False"
         datasourceid="StudentStatisticsEntityDataSource">

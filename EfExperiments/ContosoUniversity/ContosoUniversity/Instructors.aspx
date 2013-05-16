@@ -8,7 +8,8 @@
         Instructors</h2>
     <div style="float: left; margin-right: 20px;">
         <asp:entitydatasource id="InstructorsEntityDataSource" runat="server" contexttypename="ContosoUniversity.DAL.SchoolEntities"
-            enableflattening="False" entitysetname="People" where="it.HireDate is not null"
+            enableflattening="False" entitysetname="People" 
+            EntityTypeFilter="Instructor"
             include="OfficeAssignment" enableupdate="True">
         </asp:entitydatasource>
         <asp:gridview id="InstructorsGridView" runat="server" allowpaging="True" allowsorting="True"
