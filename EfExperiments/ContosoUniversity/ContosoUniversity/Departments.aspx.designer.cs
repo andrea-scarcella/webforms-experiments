@@ -22,6 +22,15 @@ namespace ContosoUniversity.DAL {
         protected global::System.Web.UI.WebControls.ObjectDataSource DepartmentsObjectDataSource;
         
         /// <summary>
+        /// DepartmentsValidationSummary control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary DepartmentsValidationSummary;
+        
+        /// <summary>
         /// DepartmentsGridView control.
         /// </summary>
         /// <remarks>
