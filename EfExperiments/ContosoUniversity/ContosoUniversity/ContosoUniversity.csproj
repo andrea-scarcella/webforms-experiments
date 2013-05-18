@@ -66,6 +66,8 @@
     </Content>
     <Content Include="Courses.aspx" />
     <Content Include="CoursesAdd.aspx" />
+    <Content Include="Departments.aspx" />
+    <Content Include="DepartmentsAdd.aspx" />
     <Content Include="Instructors.aspx" />
     <Content Include="InstructorsCourses.aspx" />
     <Content Include="Students.aspx" />
@@ -134,12 +136,28 @@
     <Compile Include="CoursesAdd.aspx.designer.cs">
       <DependentUpon>CoursesAdd.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DAL\Department.cs" />
+    <Compile Include="Departments.aspx.cs">
+      <DependentUpon>Departments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Departments.aspx.designer.cs">
+      <DependentUpon>Departments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\SchoolRepository.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DepartmentsAdd.aspx.cs">
+      <DependentUpon>DepartmentsAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DepartmentsAdd.aspx.designer.cs">
+      <DependentUpon>DepartmentsAdd.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

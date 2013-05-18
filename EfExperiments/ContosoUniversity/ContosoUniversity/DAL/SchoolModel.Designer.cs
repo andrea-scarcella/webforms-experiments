@@ -25,6 +25,7 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("SchoolModel", "FK_OfficeAssignment_Person", "Person", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ContosoUniversity.DAL.Person), "OfficeAssignment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(ContosoUniversity.DAL.OfficeAssignment), true)]
 [assembly: EdmRelationshipAttribute("SchoolModel", "FK_StudentGrade_Student", "Person", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ContosoUniversity.DAL.Person), "StudentGrade", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ContosoUniversity.DAL.StudentGrade), true)]
 [assembly: EdmRelationshipAttribute("SchoolModel", "CourseInstructor", "Course", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ContosoUniversity.DAL.Course), "Person", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ContosoUniversity.DAL.Person))]
+[assembly: EdmRelationshipAttribute("SchoolModel", "FK_Department_Person", "Person", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(ContosoUniversity.DAL.Person), "Department", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ContosoUniversity.DAL.Department), true)]
 
 #endregion
 
@@ -187,6 +188,22 @@ namespace ContosoUniversity.DAL
             }
         }
         private ObjectSet<StudentGrade> _StudentGrades;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<InstructorName> InstructorNames
+        {
+            get
+            {
+                if ((_InstructorNames == null))
+                {
+                    _InstructorNames = base.CreateObjectSet<InstructorName>("InstructorNames");
+                }
+                return _InstructorNames;
+            }
+        }
+        private ObjectSet<InstructorName> _InstructorNames;
 
         #endregion
         #region AddTo Methods
@@ -245,6 +262,14 @@ namespace ContosoUniversity.DAL
         public void AddToStudentGrades(StudentGrade studentGrade)
         {
             base.AddObject("StudentGrades", studentGrade);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the InstructorNames EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToInstructorNames(InstructorName instructorName)
+        {
+            base.AddObject("InstructorNames", instructorName);
         }
 
         #endregion
@@ -746,6 +771,44 @@ namespace ContosoUniversity.DAL
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("SchoolModel", "FK_Department_Person", "Person")]
+        public Person Person
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Person>("SchoolModel.FK_Department_Person", "Person").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Person>("SchoolModel.FK_Department_Person", "Person").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Person> PersonReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Person>("SchoolModel.FK_Department_Person", "Person");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Person>("SchoolModel.FK_Department_Person", "Person", value);
+                }
+            }
+        }
 
         #endregion
     }
@@ -803,6 +866,90 @@ namespace ContosoUniversity.DAL
         private global::System.DateTime _HireDate;
         partial void OnHireDateChanging(global::System.DateTime value);
         partial void OnHireDateChanged();
+
+        #endregion
+    
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="SchoolModel", Name="InstructorName")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class InstructorName : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new InstructorName object.
+        /// </summary>
+        /// <param name="fullName">Initial value of the FullName property.</param>
+        /// <param name="personID">Initial value of the PersonID property.</param>
+        public static InstructorName CreateInstructorName(global::System.String fullName, global::System.Int32 personID)
+        {
+            InstructorName instructorName = new InstructorName();
+            instructorName.FullName = fullName;
+            instructorName.PersonID = personID;
+            return instructorName;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String FullName
+        {
+            get
+            {
+                return _FullName;
+            }
+            set
+            {
+                if (_FullName != value)
+                {
+                    OnFullNameChanging(value);
+                    ReportPropertyChanging("FullName");
+                    _FullName = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("FullName");
+                    OnFullNameChanged();
+                }
+            }
+        }
+        private global::System.String _FullName;
+        partial void OnFullNameChanging(global::System.String value);
+        partial void OnFullNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 PersonID
+        {
+            get
+            {
+                return _PersonID;
+            }
+            set
+            {
+                if (_PersonID != value)
+                {
+                    OnPersonIDChanging(value);
+                    ReportPropertyChanging("PersonID");
+                    _PersonID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("PersonID");
+                    OnPersonIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _PersonID;
+        partial void OnPersonIDChanging(global::System.Int32 value);
+        partial void OnPersonIDChanged();
 
         #endregion
     
@@ -1421,6 +1568,28 @@ namespace ContosoUniversity.DAL
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Course>("SchoolModel.CourseInstructor", "Course", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("SchoolModel", "FK_Department_Person", "Department")]
+        public EntityCollection<Department> Departments
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Department>("SchoolModel.FK_Department_Person", "Department");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Department>("SchoolModel.FK_Department_Person", "Department", value);
                 }
             }
         }
