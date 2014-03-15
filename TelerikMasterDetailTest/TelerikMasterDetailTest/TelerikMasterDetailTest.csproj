@@ -107,6 +107,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataSourceClass.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -115,10 +116,18 @@
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VisuallyDesigned.aspx.cs">
+      <DependentUpon>VisuallyDesigned.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VisuallyDesigned.aspx.designer.cs">
+      <DependentUpon>VisuallyDesigned.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
     <Content Include="Default.aspx" />
+    <Content Include="VisuallyDesigned.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
