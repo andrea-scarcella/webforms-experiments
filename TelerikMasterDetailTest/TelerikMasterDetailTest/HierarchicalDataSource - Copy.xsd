@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xs:element name="Node" type="Node">
+  </xs:element>
+    <xs:complexType name="Node">
+      <xs:sequence>
+        <xs:element name="Key" type="xs:string" minOccurs="0" />
+		<xs:element name="ParentKey" type="xs:string" minOccurs="0" />
+        <xs:element name="Value" type="xs:string" minOccurs="0"  />
+		<xs:element name="Children" type="Node" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+    </xs:complexType>
+</xs:schema>
