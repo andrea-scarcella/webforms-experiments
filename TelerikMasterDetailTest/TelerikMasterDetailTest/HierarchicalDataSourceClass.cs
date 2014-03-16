@@ -70,7 +70,14 @@ namespace TelerikMasterDetailTest
                 },new Node(){
                     Key="3",
                     ParentKey="0",
-                    Value="aaa"
+                    Value="aaa",
+                    Children= new[]{
+                        new Node(){
+                            Key="30",
+                            Value="aaa30",
+                            ParentKey="3"
+                        }
+                    }
                 }
             }
             };
