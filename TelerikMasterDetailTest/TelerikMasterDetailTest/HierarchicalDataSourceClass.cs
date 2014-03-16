@@ -54,9 +54,17 @@ namespace TelerikMasterDetailTest
                             Value="a10"
                         },
                   new Node(){
-                      Key="10",
+                      Key="11",
                       ParentKey="2",
-                      Value="aa10"
+                      Value="aa10",
+                      Children=new[]{
+                          new Node  (){
+                              Key="111",
+                              ParentKey="11",
+                              Value="aaa11"
+                              
+                          }
+                      }
                   }
                     }
                 },new Node(){

@@ -26,9 +26,10 @@ namespace TelerikMasterDetailTest
 
         private Node[] pageGetData()
         {
-            var path = ConfigurationManager.AppSettings["xmlDataSource"].ToString();
-            path = Server.MapPath(path);
-            var data = HierarchicalDataSourceClass.getData(path);
+            //var path = ConfigurationManager.AppSettings["xmlDataSource"].ToString();
+            //path = Server.MapPath(path);
+            //var data = HierarchicalDataSourceClass.getData(path);
+            var data = HierarchicalDataSourceClass.getDummyData().Children;
             return data;
         }
 
@@ -43,18 +44,34 @@ namespace TelerikMasterDetailTest
                         string Key = dataItem.GetDataKeyValue("Key").ToString();
                         //e.DetailTableView.DataSource = pageDatasource.GetOrders(CustomerID);
                         var data = pageGetData();
-                        var childData = data.Where(n => n.Children != null && n.Children.Where(c => c.ParentKey.Equals(Key)).Any()).SelectMany(n=> n.Children);
+                        //var childData = data.Where(n => n.Children != null && n.Children.Where(c => c.ParentKey.Equals(Key)).Any()).SelectMany(n=> n.Children);
+                        var childData = GetRowChildren(Key, data);
+
+
                         e.DetailTableView.DataSource = childData;
                         break;
                     }
 
-                case "OrderDetails":
+                case "Level2":
                     {
-                        string OrderID = dataItem.GetDataKeyValue("OrderID").ToString();
-                        //e.DetailTableView.DataSource = pageDatasource.GetOrderDetails(OrderID);
+
+                        string Key = dataItem.GetDataKeyValue("Key").ToString();
+                        var data = pageGetData();
+                        //get children of level 0 nodes (level 1 nodes)
+                        var Depth1Nodes = data.Where(n => n.Children != null).SelectMany(n => n.Children);
+                        ////apply get children transform to level 1 nodes to retrieve their children (level 2 nodes)
+                        var childData1 = GetRowChildren(Key, Depth1Nodes);
+                        //var nodeToExpand = pageGetData().Where(n => n.Children != null).SelectMany(n => n.Children).Where(n => n.Key.Equals(Key)).First();
+                        e.DetailTableView.DataSource = childData1;
                         break;
                     }
             }
+        }
+
+        private static IEnumerable<Node> GetRowChildren(string Key, IEnumerable<Node> rowData)
+        {
+            var childData = rowData.Where(n => n.Children != null && n.Children.Where(c => c.ParentKey.Equals(Key)).Any()).SelectMany(n => n.Children);
+            return childData;
         }
     }
 }

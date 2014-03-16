@@ -28,8 +28,12 @@
                 </ClientSettings>
                 <MasterTableView DataMember="Value" DataKeyNames="Key">
                     <DetailTables>
-                        <telerik:GridTableView runat="server" Name="Level1" DataKeyNames="ParentKey" DataMember="Value">
+                        <telerik:GridTableView runat="server" Name="Level1" DataKeyNames="Key" DataMember="Value">
+                          <DetailTables>
+                        <telerik:GridTableView runat="server" Name="Level2" DataKeyNames="Key" DataMember="Value">
                           
+                        </telerik:GridTableView>
+                    </DetailTables>
                         </telerik:GridTableView>
                     </DetailTables>
                 </MasterTableView>
