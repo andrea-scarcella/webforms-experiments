@@ -68,7 +68,7 @@ namespace TelerikMasterDetailTest
                   }
                     }
                 },new Node(){
-                    Key="1",
+                    Key="3",
                     ParentKey="0",
                     Value="aaa"
                 }

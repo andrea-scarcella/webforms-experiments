@@ -46,8 +46,6 @@ namespace TelerikMasterDetailTest
                         var data = pageGetData();
                         //var childData = data.Where(n => n.Children != null && n.Children.Where(c => c.ParentKey.Equals(Key)).Any()).SelectMany(n=> n.Children);
                         var childData = GetRowChildren(Key, data);
-
-
                         e.DetailTableView.DataSource = childData;
                         break;
                     }
@@ -57,11 +55,10 @@ namespace TelerikMasterDetailTest
 
                         string Key = dataItem.GetDataKeyValue("Key").ToString();
                         var data = pageGetData();
-                        //get children of level 0 nodes (level 1 nodes)
+                        //get children of level 0 nodes (i.e. get level 1 nodes)
                         var Depth1Nodes = data.Where(n => n.Children != null).SelectMany(n => n.Children);
-                        ////apply get children transform to level 1 nodes to retrieve their children (level 2 nodes)
+                        //get level 2 nodes
                         var childData1 = GetRowChildren(Key, Depth1Nodes);
-                        //var nodeToExpand = pageGetData().Where(n => n.Children != null).SelectMany(n => n.Children).Where(n => n.Key.Equals(Key)).First();
                         e.DetailTableView.DataSource = childData1;
                         break;
                     }
